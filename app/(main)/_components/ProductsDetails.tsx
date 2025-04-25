@@ -71,17 +71,71 @@ const ProductsDetails = () => {
           ) : (
             <>
               <table className="w-full border-collapse bg-white py-10">
-                <thead className="bg-gray-50">
+              <thead className="bg-gray-50">
                   <tr>
-                    <th className="p-3 text-left font-medium text-gray-600">
+                    <th 
+                      className="p-3 text-left font-medium text-gray-600 cursor-pointer hover:bg-gray-100"
+                      onClick={() => {
+                        setSortBy("name");
+                        setOrder(sortBy === "name" && order === "asc" ? "desc" : "asc");
+                      }}
+                    >
                       PRODUCT NAME {sortBy === "name" && (order === "asc" ? "↑" : "↓")}
                     </th>
-                    <th className="p-3 text-left font-medium text-gray-600">BUYING PRICE</th>
-                    <th className="p-3 text-left font-medium text-gray-600">SELLING PRICE</th>
-                    <th className="p-3 text-left font-medium text-gray-600">STOCK</th>
-                    <th className="p-3 text-left font-medium text-gray-600">BRAND</th>
-                    <th className="p-3 text-left font-medium text-gray-600">CATEGORY</th>
-                    <th className="p-3 text-left font-medium text-gray-600">STATUS</th>
+                    <th 
+                      className="p-3 text-left font-medium text-gray-600 cursor-pointer hover:bg-gray-100"
+                      onClick={() => {
+                        setSortBy("buying_price");
+                        setOrder(sortBy === "buying_price" && order === "asc" ? "desc" : "asc");
+                      }}
+                    >
+                      BUYING PRICE {sortBy === "buying_price" && (order === "asc" ? "↑" : "↓")}
+                    </th>
+                    <th 
+                      className="p-3 text-left font-medium text-gray-600 cursor-pointer hover:bg-gray-100"
+                      onClick={() => {
+                        setSortBy("selling_price");
+                        setOrder(sortBy === "selling_price" && order === "asc" ? "desc" : "asc");
+                      }}
+                    >
+                      SELLING PRICE {sortBy === "selling_price" && (order === "asc" ? "↑" : "↓")}
+                    </th>
+                    <th 
+                      className="p-3 text-left font-medium text-gray-600 cursor-pointer hover:bg-gray-100"
+                      onClick={() => {
+                        setSortBy("stock");
+                        setOrder(sortBy === "stock" && order === "asc" ? "desc" : "asc");
+                      }}
+                    >
+                      STOCK {sortBy === "stock" && (order === "asc" ? "↑" : "↓")}
+                    </th>
+                    <th 
+                      className="p-3 text-left font-medium text-gray-600 cursor-pointer hover:bg-gray-100"
+                      onClick={() => {
+                        setSortBy("brand_name");
+                        setOrder(sortBy === "brand_name" && order === "asc" ? "desc" : "asc");
+                      }}
+                    >
+                      BRAND {sortBy === "brand_name" && (order === "asc" ? "↑" : "↓")}
+                    </th>
+                    <th 
+                      className="p-3 text-left font-medium text-gray-600 cursor-pointer hover:bg-gray-100"
+                      onClick={() => {
+                        setSortBy("category_name");
+                        setOrder(sortBy === "category_name" && order === "asc" ? "desc" : "asc");
+                      }}
+                    >
+                      CATEGORY {sortBy === "category_name" && (order === "asc" ? "↑" : "↓")}
+                    </th>
+                    <th 
+                      className="p-3 text-left font-medium text-gray-600 cursor-pointer hover:bg-gray-100"
+                      onClick={() => {
+                        setSortBy("status");
+                        setOrder(sortBy === "status" && order === "asc" ? "desc" : "asc");
+                      }}
+                    >
+                      STATUS {sortBy === "status" && (order === "asc" ? "↑" : "↓")}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
