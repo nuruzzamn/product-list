@@ -1,6 +1,6 @@
 import { ProductListParams, ProductListResponse } from "@/types/products";
 
-const BASE_URL = 'https://laravelpoint.com/api';
+export const BASE_URL = 'https://captainbinary.com';
 
 export async function fetchProducts(params: ProductListParams): Promise<ProductListResponse> {
   const queryParams = new URLSearchParams();
@@ -10,7 +10,7 @@ export async function fetchProducts(params: ProductListParams): Promise<ProductL
   if (params.order) queryParams.append('order', params.order);
   if (params.page) queryParams.append('page', params.page.toString());
 
-  const response = await fetch(`${BASE_URL}/ProductList?${queryParams.toString()}`);
+  const response = await fetch(`${BASE_URL}/api/ProductList?${queryParams.toString()}`);
   
   if (!response.ok) {
     throw new Error('Failed to fetch products');
