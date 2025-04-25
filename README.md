@@ -2,6 +2,9 @@
 
 A modern web application for managing product with advanced sorting, searching, and pagination capabilities.
 
+## Live Demo
+🌐 [View Live Project](https://products-list-task007.netlify.app/)
+
 ## Features
 
 -  Advanced product search functionality
