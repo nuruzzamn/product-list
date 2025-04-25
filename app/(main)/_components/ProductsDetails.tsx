@@ -1,10 +1,10 @@
 "use client";
 
-import { fetchProducts } from "@/services/api";
+import { BASE_URL, fetchProducts } from "@/services/api";
 import { Product } from "@/types/products";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
+import TableSkeleton from "./TableSkeleton";
 
 const ProductsDetails = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -61,12 +61,13 @@ const ProductsDetails = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
             <span className="text-gray-600">
-              Showing 1 to 20 of {totalPages * 20} products
+              Showing {currentPage*20 - 19} to {currentPage*20} of {totalPages * 20} products
             </span>
           </div>
 
           {loading ? (
-            <div>Loading...</div>
+            // <div>Loading...</div>
+            <TableSkeleton/>
           ) : (
             <>
               <table className="w-full border-collapse bg-white py-10">
@@ -89,7 +90,7 @@ const ProductsDetails = () => {
                       <td className="p-3 flex items-center gap-3">
                         <div className="relative w-12 h-12">
                           <Image
-                            src={`https://laravelpoint.com/${product.img}`}
+                            src={`${BASE_URL}/${product.img}`}
                             alt={product?.name}
                             fill
                             sizes="(max-width: 48px) 100vw"
@@ -97,7 +98,7 @@ const ProductsDetails = () => {
                             priority={false}
                             onError={(e) => {
                               const target = e.target as HTMLImageElement;
-                              target.src = '/placeholder.png'; // Fallback image on error
+                              target.src = '/placeholder.png';
                             }}
                           />
                         </div>

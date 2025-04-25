@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
+// import { BASE_URL } from "./services/api";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['laravelpoint.com'],
+    domains: ['captainbinary.com'],
   },
 };
 
